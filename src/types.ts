@@ -45,3 +45,16 @@ export interface textDefaultType extends commonDefaultType {
   backgroundColor?: string
   tag?: string
 }
+
+export interface PropToForm {
+  component: string
+  value?: any
+  extraProps?: {
+    [key: string]: string
+  }
+  title: string
+}
+
+export type PropsToForm = {
+  [P in keyof textDefaultType]: PropToForm
+}

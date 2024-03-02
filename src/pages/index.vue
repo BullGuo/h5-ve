@@ -7,8 +7,8 @@ import { defaultTextTemplates } from '~/defaultTemplate'
 const components: DynamicComponent = { Text }
 
 const formComponents = ref<ComponentData<textDefaultType>[]>([
-  { id: uuidv4(), name: 'Text', props: { fontSize: 32, tag: 'h1', text: '123', color: 'red' } },
-  { id: uuidv4(), name: 'Text', props: { fontSize: 16, tag: 'h3', text: '456', color: 'black', lineHeight: 2 } },
+  { id: uuidv4(), name: 'Text', props: { fontSize: 32, tag: 'h1', text: '123', color: '#1E90FF' } },
+  { id: uuidv4(), name: 'Text', props: { fontSize: 16, tag: 'h3', text: '456', color: '	#4B0082', lineHeight: 2 } },
 ])
 
 function handleTemplateClick(data: textDefaultType) {
@@ -48,7 +48,7 @@ function handleEditClick(id: string) {
       </el-main>
       <el-aside w="1/4!" bg-red>
         Aside
-        <pre>{{ currentElement?.props }}</pre>
+        <props-form v-if="currentElement" :form-value="currentElement?.props" />
       </el-aside>
     </el-container>
   </div>

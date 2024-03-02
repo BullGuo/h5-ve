@@ -13,7 +13,3 @@ const props = withDefaults(defineProps<textDefaultType>(), {
     {{ text }}
   </component>
 </template>
-
-<style scope>
-
-</style>
