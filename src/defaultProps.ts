@@ -21,12 +21,12 @@ export const commonDefaultProps: commonDefaultType = {
 
 export const textDefaultProps: textDefaultType = {
   text: '',
-  fontSize: '',
+  fontSize: 12,
   fontFamily: '',
   fontWeight: '',
   fontStyle: '',
   textDecoration: '',
-  lineHeight: '',
+  lineHeight: 1,
   textAlign: '',
   color: '',
   backgroundColor: '',

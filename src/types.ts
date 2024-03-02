@@ -34,12 +34,12 @@ export interface commonDefaultType {
 
 export interface textDefaultType extends commonDefaultType {
   text?: string
-  fontSize?: string
+  fontSize?: number
   fontFamily?: string
   fontWeight?: string
   fontStyle?: string
   textDecoration?: string
-  lineHeight?: string
+  lineHeight?: number
   textAlign?: string
   color?: string
   backgroundColor?: string

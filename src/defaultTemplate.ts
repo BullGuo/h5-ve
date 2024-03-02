@@ -3,7 +3,7 @@ import type { textDefaultType } from '~/types'
 export const defaultTextTemplates: Array<textDefaultType> = [
   {
     text: '大标题',
-    fontSize: '30px',
+    fontSize: 30,
     fontWeight: 'bold',
     tag: 'h2',
   },

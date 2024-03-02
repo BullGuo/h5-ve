@@ -6,9 +6,9 @@ import { defaultTextTemplates } from '~/defaultTemplate'
 
 const components: DynamicComponent = { Text }
 
-const formComponents: ComponentData<textDefaultType>[] = reactive([
-  { id: uuidv4(), name: 'Text', props: { fontSize: '32px', tag: 'h1', text: '123', color: 'red' } },
-  { id: uuidv4(), name: 'Text', props: { fontSize: '16px', tag: 'h3', text: '456', color: 'black' } },
+const formComponents = ref<ComponentData<textDefaultType>[]>([
+  { id: uuidv4(), name: 'Text', props: { fontSize: 32, tag: 'h1', text: '123', color: 'red' } },
+  { id: uuidv4(), name: 'Text', props: { fontSize: 16, tag: 'h3', text: '456', color: 'black', lineHeight: 2 } },
 ])
 
 function handleTemplateClick(data: textDefaultType) {
@@ -17,13 +17,13 @@ function handleTemplateClick(data: textDefaultType) {
     name: 'Text',
     props: data,
   }
-  formComponents.push(newData)
+  formComponents.value.push(newData)
 }
 
 const currentElement = ref<ComponentData<textDefaultType>>()
 
 function handleEditClick(id: string) {
-  currentElement.value = formComponents.find(item => item.id === id)
+  currentElement.value = formComponents.value.find(item => item.id === id)
 }
 </script>
 
@@ -43,7 +43,6 @@ function handleEditClick(id: string) {
           :is-active="currentElement?.id === component.id"
           @on-edit-click="handleEditClick"
         >
-          <pre>{{ component.id }}</pre>
           <component :is="components[component.name]" v-bind="component.props" />
         </edit-wrapper>
       </el-main>
