@@ -34,7 +34,7 @@ export interface commonDefaultType {
 
 export interface textDefaultType extends commonDefaultType {
   text?: string
-  fontSize?: number
+  fontSize?: string
   fontFamily?: string
   fontWeight?: string
   fontStyle?: string
@@ -53,6 +53,7 @@ export interface PropToForm {
     [key: string]: string
   }
   title: string
+  initTransform?: (v: any) => any
 }
 
 export type PropsToForm = {

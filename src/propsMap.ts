@@ -8,6 +8,7 @@ export const mapPropsToForm: PropsToForm = {
   fontSize: {
     component: 'el-input-number',
     title: '字号',
+    initTransform: value => Number.parseInt(value),
   },
   lineHeight: {
     component: 'el-slider',

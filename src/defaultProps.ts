@@ -21,7 +21,7 @@ export const commonDefaultProps: commonDefaultType = {
 
 export const textDefaultProps: textDefaultType = {
   text: '',
-  fontSize: 12,
+  fontSize: '12px',
   fontFamily: '',
   fontWeight: '',
   fontStyle: '',

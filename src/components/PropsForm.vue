@@ -6,12 +6,14 @@ const props = defineProps<{ formValue: textDefaultType }>()
 
 const formResult = computed(() => {
   const formObj: PropsToForm = {}
+  const formValue = props.formValue
   Object.entries(mapPropsToForm).forEach(([key, value]) => {
     const newKey = key as keyof textDefaultType
-    if (props.formValue[newKey]) {
+    const newValue = formValue[newKey]
+    if (newValue) {
       formObj[newKey] = {
         component: value.component,
-        value: props.formValue[newKey],
+        value: value.initTransform ? value.initTransform(newValue) : newValue,
         title: value.title,
       }
     }
