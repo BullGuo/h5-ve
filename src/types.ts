@@ -54,8 +54,13 @@ export interface PropToForm {
     [key: string]: any
   }
   title: string
-  initTransform?: (v: any) => any
   subOptions?: { label: string, value: any }[]
+  eventName?: string
+  events?: { [key: string]: (v: string) => void }
+  // 将初始值转换成组件所需要的格式
+  initTransform?: (v: any) => any
+  // 将组件抛出的值转换成初始值格式
+  unInitTransform?: (v: any) => any
 }
 
 export type PropsToForm = {

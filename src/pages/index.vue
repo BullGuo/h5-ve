@@ -8,7 +8,7 @@ const components: DynamicComponent = { Text }
 
 const formComponents = ref<ComponentData<textDefaultType>[]>([
   { id: uuidv4(), name: 'Text', props: { fontSize: '32px', tag: 'h1', text: '123', color: '#1E90FF', textAlign: 'left', fontFamily: '"SimSun","STSong"' } },
-  { id: uuidv4(), name: 'Text', props: { fontSize: '16px', tag: 'h3', text: '456', color: '	#4B0082', lineHeight: 2, textAlign: 'center' } },
+  { id: uuidv4(), name: 'Text', props: { fontSize: '16px', tag: 'h3', text: '456', color: '	#4B0082', lineHeight: 2, textAlign: 'center', fontFamily: '' } },
 ])
 
 function handleTemplateClick(data: textDefaultType) {
@@ -24,6 +24,11 @@ const currentElement = ref<ComponentData<textDefaultType>>()
 
 function handleEditClick(id: string) {
   currentElement.value = formComponents.value.find(item => item.id === id)
+}
+
+function handleChange({ key, value }: { key: string, value: any }) {
+  if (currentElement?.value)
+    currentElement.value.props[key as keyof textDefaultType] = value
 }
 </script>
 
@@ -48,7 +53,7 @@ function handleEditClick(id: string) {
       </el-main>
       <el-aside w="1/4!" bg-red>
         Aside
-        <props-form v-if="currentElement" :form-value="currentElement?.props" />
+        <props-form v-if="currentElement" :form-value="currentElement?.props" @on-change="handleChange" />
       </el-aside>
     </el-container>
   </div>

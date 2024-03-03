@@ -4,16 +4,21 @@ export const mapPropsToForm: PropsToForm = {
   text: {
     component: 'el-input',
     title: '文本',
+    extraProps: { type: 'textarea', autosize: true },
+    eventName: 'input',
   },
   fontSize: {
     component: 'el-input-number',
     title: '字号',
+    extraProps: { min: 12 },
     initTransform: value => Number.parseInt(value),
+    unInitTransform: value => `${value}px`,
   },
   lineHeight: {
     component: 'el-slider',
     title: '行高',
     extraProps: { min: 1, max: 3, step: 0.1 },
+    eventName: 'input',
   },
   color: {
     component: 'el-color-picker',
@@ -29,6 +34,7 @@ export const mapPropsToForm: PropsToForm = {
     component: 'el-select',
     subComponent: 'el-option',
     title: '字体',
+    extraProps: { placeholder: '' },
     subOptions: [
       { label: '', value: '无' },
       { label: '宋体', value: '"SimSun","STSong"' },
