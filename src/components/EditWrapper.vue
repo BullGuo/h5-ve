@@ -1,15 +1,20 @@
 <script setup lang='ts'>
 defineProps<{ id: string, isActive: boolean }>()
 
-const emits = defineEmits<{ onEditClick: [id: string] }>()
+const emits = defineEmits<{ onEditClick: [id: string], onEditDel: [id: string] }>()
 
 function handleClick(id: string) {
   emits('onEditClick', id)
 }
+
+function handleDel(id: string) {
+  emits('onEditDel', id)
+}
 </script>
 
 <template>
-  <div :class="{ border: isActive }" @click="handleClick(id)">
+  <div :class="{ border: isActive }" relative mb5 @click="handleClick(id)">
+    <div i-ic:sharp-remove-circle-outline absolute right-0 un-translate="x-50% y--50%" @click.stop="handleDel(id)" />
     <slot />
   </div>
 </template>

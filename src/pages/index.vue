@@ -26,6 +26,12 @@ function handleEditClick(id: string) {
   currentElement.value = formComponents.value.find(item => item.id === id)
 }
 
+function handleEditDel(id: string) {
+  formComponents.value = formComponents.value.filter(item => item.id !== id)
+  if (currentElement?.value)
+    currentElement.value = undefined
+}
+
 function handleChange({ key, value }: { key: string, value: any }) {
   if (currentElement?.value)
     currentElement.value.props[key as keyof textDefaultType] = value
@@ -47,6 +53,7 @@ function handleChange({ key, value }: { key: string, value: any }) {
           :key="component.id"
           :is-active="currentElement?.id === component.id"
           @on-edit-click="handleEditClick"
+          @on-edit-del="handleEditDel"
         >
           <component :is="components[component.name]" v-bind="component.props" />
         </edit-wrapper>
