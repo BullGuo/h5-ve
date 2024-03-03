@@ -21,6 +21,10 @@ const formResult = computed(() => {
   })
   return formObj
 })
+
+function RenderVNode(props: Record<string, VNode>) {
+  return props['virtual-dom']
+}
 </script>
 
 <template>
@@ -30,7 +34,9 @@ const formResult = computed(() => {
     </div>
     <component :is="item?.component" :model-value="item?.value" v-bind="item?.extraProps" v-on="item?.events">
       <template v-if="item?.subComponent && item.subOptions">
-        <component :is="item.subComponent" v-for="option of item.subOptions" :key="option.value" v-bind="option" />
+        <component :is="item.subComponent" v-for="option of item.subOptions" :key="option.value" v-bind="option">
+          <RenderVNode v-if="option.labelVNode" :virtual-dom="option.labelVNode" />
+        </component>
       </template>
     </component>
   </div>

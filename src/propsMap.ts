@@ -1,5 +1,20 @@
 import type { PropsToForm } from '~/types'
 
+const fontFamilyArr = [
+  { label: '宋体', value: '"SimSun","STSong"' },
+  { label: '黑体', value: '"SimHei","STHeiti"' },
+  { label: '楷体', value: '"KaiTi","STKaiti"' },
+  { label: '仿宋', value: '"FangSong","STFangsong"' },
+]
+
+const fontFamilyRes = fontFamilyArr.map(({ label, value }) => {
+  return {
+    value,
+    label,
+    labelVNode: h('span', { style: { fontFamily: value } }, label),
+  }
+})
+
 export const mapPropsToForm: PropsToForm = {
   text: {
     component: 'el-input',
@@ -36,11 +51,8 @@ export const mapPropsToForm: PropsToForm = {
     title: '字体',
     extraProps: { placeholder: '' },
     subOptions: [
-      { label: '', value: '无' },
-      { label: '宋体', value: '"SimSun","STSong"' },
-      { label: '黑体', value: '"SimHei","STHeiti"' },
-      { label: '楷体', value: '"KaiTi","STKaiti"' },
-      { label: '仿宋', value: '"FangSong","STFangsong"' },
+      { label: '无', value: '' },
+      ...fontFamilyRes,
     ],
   },
 }
