@@ -13,8 +13,11 @@ const formResult = computed(() => {
     if (newValue) {
       formObj[newKey] = {
         component: value.component,
+        subComponent: value.subComponent,
         value: value.initTransform ? value.initTransform(newValue) : newValue,
         title: value.title,
+        extraProps: value.extraProps,
+        subOptions: value.subOptions,
       }
     }
   })
@@ -27,7 +30,11 @@ const formResult = computed(() => {
     <div shrink-0>
       {{ item?.title }}
     </div>
-    <component :is="item?.component" :model-value="item?.value" />
+    <component :is="item?.component" :model-value="item?.value" v-bind="item?.extraProps">
+      <template v-if="item?.subComponent && item.subOptions">
+        <component :is="item.subComponent" v-for="option of item.subOptions" :key="option.value" v-bind="option" />
+      </template>
+    </component>
   </div>
   <pre>{{ formValue }}</pre>
 </template>

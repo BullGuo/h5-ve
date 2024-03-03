@@ -7,8 +7,8 @@ import { defaultTextTemplates } from '~/defaultTemplate'
 const components: DynamicComponent = { Text }
 
 const formComponents = ref<ComponentData<textDefaultType>[]>([
-  { id: uuidv4(), name: 'Text', props: { fontSize: '32px', tag: 'h1', text: '123', color: '#1E90FF' } },
-  { id: uuidv4(), name: 'Text', props: { fontSize: '16px', tag: 'h3', text: '456', color: '	#4B0082', lineHeight: 2 } },
+  { id: uuidv4(), name: 'Text', props: { fontSize: '32px', tag: 'h1', text: '123', color: '#1E90FF', textAlign: 'left', fontFamily: '"SimSun","STSong"' } },
+  { id: uuidv4(), name: 'Text', props: { fontSize: '16px', tag: 'h3', text: '456', color: '	#4B0082', lineHeight: 2, textAlign: 'center' } },
 ])
 
 function handleTemplateClick(data: textDefaultType) {

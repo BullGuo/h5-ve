@@ -48,12 +48,14 @@ export interface textDefaultType extends commonDefaultType {
 
 export interface PropToForm {
   component: string
+  subComponent?: string
   value?: any
   extraProps?: {
-    [key: string]: string
+    [key: string]: any
   }
   title: string
   initTransform?: (v: any) => any
+  subOptions?: { label: string, value: any }[]
 }
 
 export type PropsToForm = {
