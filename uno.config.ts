@@ -26,4 +26,12 @@ export default defineConfig({
       },
     }),
   ],
+  content: {
+    pipeline: {
+      include: [
+        /\.(vue|[jt]sx|html)($|\?)/,
+        'src/**/*.{js,ts}',
+      ],
+    },
+  },
 })
