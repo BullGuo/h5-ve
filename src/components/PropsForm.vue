@@ -1,12 +1,13 @@
 <script setup lang='ts'>
 import ColorPicker from './ColorPicker.vue'
+import IconSwitch from './IconSwitch.vue'
 import type { DynamicComponent, PropsToForm, textDefaultType } from '~/types'
 import { mapPropsToForm } from '~/propsMap'
 
 const props = defineProps<{ formValue: textDefaultType }>()
 const emit = defineEmits<{ onChange: [{ key: string, value: any }] }>()
 
-const customComponents: DynamicComponent = { 'color-picker': ColorPicker }
+const customComponents: DynamicComponent = { 'color-picker': ColorPicker, 'icon-switch': IconSwitch }
 
 const formResult = computed(() => {
   const formObj: PropsToForm = {}
@@ -17,8 +18,8 @@ const formResult = computed(() => {
       const { initTransform, unInitTransform, eventName = 'change', valueName = 'model-value', extraProps } = value
       formObj[newKey] = {
         ...value,
-        extraProps: { ...extraProps, [valueName]: initTransform?.(formValue[newKey]) || formValue[newKey] },
-        events: { [eventName]: v => emit('onChange', { key, value: unInitTransform?.(v) || v }) },
+        extraProps: { ...extraProps, [valueName]: initTransform?.(formValue[newKey]) ?? formValue[newKey] },
+        events: { [eventName]: v => emit('onChange', { key, value: unInitTransform?.(v) ?? v }) },
       }
     }
   })
