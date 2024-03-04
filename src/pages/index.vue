@@ -7,8 +7,8 @@ import { defaultTextTemplates } from '~/defaultTemplate'
 const components: DynamicComponent = { Text }
 
 const formComponents = ref<ComponentData<textDefaultType>[]>([
-  { id: uuidv4(), name: 'Text', props: { fontSize: '32px', tag: 'h1', text: '123', color: '#1E90FF', textAlign: 'left', fontFamily: '"SimSun","STSong"' } },
-  { id: uuidv4(), name: 'Text', props: { fontSize: '16px', tag: 'h3', text: '456', color: '	#4B0082', lineHeight: 2, textAlign: 'center', fontFamily: '' } },
+  { id: uuidv4(), name: 'Text', props: { fontSize: '32px', tag: 'h1', text: '123', color: '#1E90FF', textAlign: 'left', fontFamily: '"SimSun","STSong"', width: '100px', height: '50px' } },
+  { id: uuidv4(), name: 'Text', props: { fontSize: '16px', tag: 'h3', text: '456', color: '#49118D', lineHeight: 2, textAlign: 'center', fontFamily: '' } },
 ])
 
 function handleTemplateClick(data: textDefaultType) {
@@ -42,11 +42,9 @@ function handleChange({ key, value }: { key: string, value: any }) {
   <div h-full>
     <el-container h-full>
       <el-aside w="1/4!" bg-green>
-        Aside
         <left-template :list="defaultTextTemplates" @on-template-click="handleTemplateClick" />
       </el-aside>
       <el-main bg-yellow>
-        Main
         <edit-wrapper
           v-for="component of formComponents"
           :id="component.id"
@@ -59,7 +57,6 @@ function handleChange({ key, value }: { key: string, value: any }) {
         </edit-wrapper>
       </el-main>
       <el-aside w="1/4!" bg-red>
-        Aside
         <props-form v-if="currentElement" :form-value="currentElement?.props" @on-change="handleChange" />
       </el-aside>
     </el-container>

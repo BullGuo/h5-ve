@@ -13,7 +13,7 @@ function handleDel(id: string) {
 </script>
 
 <template>
-  <div :class="{ border: isActive }" relative mb5 @click="handleClick(id)">
+  <div :class="{ border: isActive }" relative mb5 inline-block @click="handleClick(id)">
     <div i-ic:sharp-remove-circle-outline absolute right-0 un-translate="x-50% y--50%" @click.stop="handleDel(id)" />
     <slot />
   </div>

@@ -36,8 +36,9 @@ export const mapPropsToForm: PropsToForm = {
     eventName: 'input',
   },
   color: {
-    component: 'el-color-picker',
-    title: '颜色',
+    component: 'color-picker',
+    title: '字体颜色',
+    valueName: 'value',
   },
   textAlign: {
     component: 'el-radio-group',
@@ -54,5 +55,17 @@ export const mapPropsToForm: PropsToForm = {
       { label: '无', value: '' },
       ...fontFamilyRes,
     ],
+  },
+  width: {
+    component: 'el-input-number',
+    title: '长度',
+    initTransform: value => Number.parseInt(value),
+    unInitTransform: value => `${value}px`,
+  },
+  height: {
+    component: 'el-input-number',
+    title: '高度',
+    initTransform: value => Number.parseInt(value),
+    unInitTransform: value => `${value}px`,
   },
 }

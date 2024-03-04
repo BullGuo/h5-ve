@@ -55,6 +55,7 @@ export interface PropToForm {
   }
   title: string
   subOptions?: { label: string, value: any, labelVNode?: VNode }[]
+  valueName?: string
   eventName?: string
   events?: { [key: string]: (v: string) => void }
   // 将初始值转换成组件所需要的格式
