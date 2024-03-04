@@ -44,5 +44,4 @@ function RenderVNode(props: Record<string, VNode>) {
       </template>
     </component>
   </div>
-  <pre>{{ formValue }}</pre>
 </template>

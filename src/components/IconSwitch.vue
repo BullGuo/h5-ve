@@ -18,7 +18,8 @@ function handleIconClick(active: boolean) {
     border="1 #606266/30" rounded="50%"
     :bg="isActive ? '#699DFF' : ''"
     :color="isActive ? '#fff' : '#4E4E4E'"
-    @click="handleIconClick(isActive)"
+    :hover="isActive ? '' : 'c-#699DFF b-#699DFF'"
+    @click.stop="handleIconClick(isActive)"
   >
     <el-tooltip
       :content="tooltipText"

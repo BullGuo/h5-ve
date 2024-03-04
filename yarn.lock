@@ -609,6 +609,13 @@
   dependencies:
     "@iconify/types" "*"
 
+"@iconify-json/ci@^1.1.13":
+  version "1.1.13"
+  resolved "https://registry.yarnpkg.com/@iconify-json/ci/-/ci-1.1.13.tgz#5ae57dca0c200466645d72804a3754a60051f010"
+  integrity sha512-UXKTbxmWMUy4Iz6OL2GXzy2PtzKzT5WkM7IJ9OEdq7fe210yJ535hdNaJ6TeKHsxZ0TrVgTvR2gvctAMVobBeg==
+  dependencies:
+    "@iconify/types" "*"
+
 "@iconify-json/ic@^1.1.17":
   version "1.1.17"
   resolved "https://registry.yarnpkg.com/@iconify-json/ic/-/ic-1.1.17.tgz#d1676582fccb45cfbc5e3dd0e100b2ec974c13c9"
