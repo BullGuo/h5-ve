@@ -4,11 +4,11 @@ import type { ComponentData, textDefaultType } from '~/types'
 defineProps<{ list: ComponentData<textDefaultType>[], selectId: string | undefined }>()
 
 const emit = defineEmits<{
-  change: [{ id: string, value: boolean, key: string, isRoot: boolean }]
+  change: [{ id: string, value: boolean | string, key: string, isRoot: boolean }]
   select: [id: string]
 }>()
 
-function changeState(id: string, value: boolean, key: string) {
+function changeState(id: string, value: boolean | string, key: string) {
   emit('change', { id, value, key, isRoot: true })
 }
 
@@ -39,6 +39,6 @@ function handleLayerClick(id: string) {
       :icon="item.isLocked ? 'i-ci:lock-open' : 'i-ci:lock'"
       @change="changeState(item.id, $event, 'isLocked')"
     />
-    <div>{{ item.layerName }}</div>
+    <inline-edit :value="item.layerName!" @change="changeState(item.id, $event, 'layerName')" />
   </div>
 </template>
