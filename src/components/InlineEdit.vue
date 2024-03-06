@@ -48,7 +48,7 @@ function handleClick() {
 
 <template>
   <div ref="wrapperRef" @click.stop="handleClick">
-    <input v-if="isEditing" ref="inputRef" v-model="inputValue" placeholder="请输入">
+    <input v-if="isEditing" ref="inputRef" v-model="inputValue" placeholder="请输入" w-full>
     <div v-else>
       {{ inputValue }}
     </div>

@@ -1,6 +1,6 @@
 <script setup lang='ts'>
 defineProps<{
-  isActive: boolean
+  isActive?: boolean
   tooltipText: string
   icon: string
 }>()
@@ -19,7 +19,7 @@ function handleIconClick(active: boolean) {
     :bg="isActive ? '#699DFF' : ''"
     :color="isActive ? '#fff' : '#4E4E4E'"
     :hover="isActive ? '' : 'c-#699DFF b-#699DFF'"
-    @click.stop="handleIconClick(isActive)"
+    @click.stop="handleIconClick(!!isActive)"
   >
     <el-tooltip
       :content="tooltipText"
